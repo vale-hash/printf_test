@@ -10,8 +10,7 @@
 
 int _printf(const char *format,	...)
 {
-unsigned int i, counter = 0;
-
+unsigned int i, counter = 0, str_count;
 
 va_list param;
 
@@ -23,12 +22,17 @@ for (i = 0; format[i] != '\0'; i++)
 	{
 		_putchr(format[i]);
 	}
-	if (format[i] == '%' && format[i + 1] == 'c')
+        else if (format[i] == '%' && format[i + 1] == 'c')
 	{
 		_putchr(va_arg(param, int));
-i++;
+		i++;
 	}
-
+	else if (format[i + 1] == 's')
+	{
+		str_count = _puts(va_arg(param, char*));
+		i++;
+		counter += (str_count - 1);
+	}
 	counter++;
 }
 va_end(param);

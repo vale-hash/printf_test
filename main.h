@@ -5,4 +5,5 @@
 #include <stdlib.h>
 int _printf(const char *format, ...);
 int _putchr(char c);
+int _puts(char *str);
 #endif	
