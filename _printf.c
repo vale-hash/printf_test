@@ -22,7 +22,7 @@ for (i = 0; format[i] != '\0'; i++)
 	{
 		_putchr(format[i]);
 	}
-        else if (format[i] == '%' && format[i + 1] == 'c')
+	else if (format[i] == '%' && format[i + 1] == 'c')
 	{
 		_putchr(va_arg(param, int));
 		i++;
